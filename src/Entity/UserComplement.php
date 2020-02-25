@@ -9,5 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class UserComplement extends User
 {
-    
+    /**
+     * @ORM\Column(type="string", lenght=180, unique=true)
+     */
+    private $steam_id;
 }
