@@ -7,9 +7,8 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserComplementRepository")
- * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
-class UserComplement extends User
+class UserComplement
 {
 
     /**
@@ -41,6 +40,18 @@ class UserComplement extends User
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $originPseudo;
+
+    public function getPseudo(): ?string
+    {
+        return $this->pseudo;
+    }
+
+    public function setPseudo(string $pseudo): self
+    {
+        $this->pseudo = $pseudo;
+
+        return $this;
+    }
 
     public function getSteamPseudo(): ?string
     {
