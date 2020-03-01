@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<title>Edit Annouces</title>
+
+{% block body %}
+    <h1>Edit Annouces</h1>
+
+    {{ include('annouces/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('annouces_index') }}">back to list</a>
+
+    {{ include('annouces/_delete_form.html.twig') }}
+{% endblock %}

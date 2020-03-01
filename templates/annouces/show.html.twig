@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<title>Annouces</title>
+
+{% block body %}
+    <h1>Annouces</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ annouce.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ annouce.title }}</td>
+            </tr>
+            <tr>
+                <th>Text</th>
+                <td>{{ annouce.text }}</td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td>{{ annouce.author }}</td>
+            </tr>
+            <tr>
+                <th>CreatDate</th>
+                <td>{{ annouce.creatDate ? annouce.creatDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdateAt</th>
+                <td>{{ annouce.updateAt ? annouce.updateAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('annouces_index') }}">back to list</a>
+
+    <a href="{{ path('annouces_edit', {'id': annouce.id}) }}">edit</a>
+
+    {{ include('annouces/_delete_form.html.twig') }}
+{% endblock %}

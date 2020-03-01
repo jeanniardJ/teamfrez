@@ -12,6 +12,13 @@ class UserComplement
 {
 
     /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+
+    /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $pseudo;

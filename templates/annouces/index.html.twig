@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<title>Annouces index</title>
+
+{% block body %}
+    <h1>Annouces index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Text</th>
+                <th>Author</th>
+                <th>CreatDate</th>
+                <th>UpdateAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for annouce in annouces %}
+            <tr>
+                <td>{{ annouce.id }}</td>
+                <td>{{ annouce.title }}</td>
+                <td>{{ annouce.text }}</td>
+                <td>{{ annouce.author }}</td>
+                <td>{{ annouce.creatDate ? annouce.creatDate|date('Y-m-d') : '' }}</td>
+                <td>{{ annouce.updateAt ? annouce.updateAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('annouces_show', {'id': annouce.id}) }}">show</a>
+                    <a href="{{ path('annouces_edit', {'id': annouce.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('annouces_new') }}">Create new</a>
+{% endblock %}
